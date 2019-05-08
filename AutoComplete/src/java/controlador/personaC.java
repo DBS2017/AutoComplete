@@ -34,17 +34,18 @@ public class personaC implements Serializable {
         } catch (SQLException e) {//cerramos en Try_Catch
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "ALUMNO YA Registrado", null));  // Mensaje de ERROR 
             limpiar(); // traemos el metodo limpiar
+            throw e; //Para mostrar posibles errores
         }
     }
     
     public List<String> completeTextUbi(String query) throws SQLException, Exception{
-        PersonaD dao = new PersonaD();
-        return dao.queryAutoCompleteUbi(query);
+        PersonaD dao = new PersonaD(); //Instanciamos PersonaD
+        return dao.queryAutoCompleteUbi(query); //Retornamos el listado de meotodos de PersonaD
     }
     
     public List<String> completeTextDni(String query) throws SQLException, Exception{
-        PersonaD dao = new PersonaD();
-        return dao.queryAutoCompleteDni(query);
+        PersonaD dao = new PersonaD(); //Instanciamos PersonaD
+        return dao.queryAutoCompleteDni(query); //Retornamos el listado de meotodos de PersonaD
     }
     
     public void consultar() throws Exception{ // Creamos Metodo Consultar

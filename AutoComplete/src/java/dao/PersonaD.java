@@ -18,11 +18,11 @@ public class PersonaD  extends Dao implements personaI{
             this.conectar();// llamamos a la conexion con este metodo
             String sql="EXEC SP_INSERTARPERSONA ?,?,?,?"; //Guardamos la sentencia dentro de un store procedures 
             PreparedStatement ps = this.getCn().prepareStatement(sql);// Llamamos y preparamos la consulta desde la variable SQL
-            ps.setString(1, persona.getNOMPER()); //Guaradmos los valores en cada campo
-            ps.setString(2, persona.getAPEPER()); 
-            ps.setString(3, persona.getDNIPER());
-            ps.setString(4, persona.getUBIGEO_CODUBI());
-            ps.executeUpdate();//Ejecutamos la sentencia
+            ps.setString(1, persona.getNOMPER()); //Guaradmos los valores en el campo NOMPER
+            ps.setString(2, persona.getAPEPER()); //Guaradmos los valores en el campo APEPER
+            ps.setString(3, persona.getDNIPER());//Guaradmos los valores en el campo DNIPER
+            ps.setString(4, persona.getUBIGEO_CODUBI()); //Guaradmos los valores en el campo UBIGEO_CODUBI
+            ps.executeUpdate();//Ejecutamos la sentencia 
         } catch (SQLException e) { //cerramos en Try_Catch
             throw e;//Para mostrar posibles errores
         }finally{
@@ -84,7 +84,7 @@ public class PersonaD  extends Dao implements personaI{
             ps.setString(1, a); //vamos guardando el dato en el parametro 
             rs = ps.executeQuery(); // Ejecutamos la consulta
             if (rs.next()) { 
-                return rs.getString("CODUBI");
+                return rs.getString("CODUBI");  //Retenoramos los datos y obtenemos   CODUBI
             }
             return null; //Retornamos consulta Vacia
         } catch (SQLException e) { //cerramos en Try_Catch

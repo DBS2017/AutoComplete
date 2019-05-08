@@ -12,7 +12,7 @@ public class Dao {
         try {
             // Class.forName("com.mysql.jdbc.Driver");
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            cn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=FORMULARIO", "admin", "admin");
+            cn = DriverManager.getConnection("jdbc:sqlserver://192.168.8.132:1433;databaseName=FORMULARIO", "admin", "admin");
 //          cn = DriverManager.getConnection("jdbc:mysql://35.211.230.249:3306/mysql", "root", "zsalcedo989097+-1571");
             System.out.println("Conectado");
         } catch (ClassNotFoundException e) {
